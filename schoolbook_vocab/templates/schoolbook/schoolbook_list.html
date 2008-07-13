@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+  {% for schoolbook in object_list %}
+    <li><a href="{{ schoolbook.get_absolute_url }}">{{ schoolbook.name }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

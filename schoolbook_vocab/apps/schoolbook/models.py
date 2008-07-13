@@ -16,3 +16,7 @@ class Schoolbook(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.name
+    
+    def get_absolute_url(self):
+        return ('schoolbook_details', (), { 'slug': self.slug })
+    get_absolute_url = models.permalink(get_absolute_url)

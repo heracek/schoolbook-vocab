@@ -6,4 +6,6 @@ urlpatterns = patterns('',
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^schoolbooks/', include('apps.schoolbook.urls')),
+    (r'^$', 'django.views.generic.simple.redirect_to', {'url': '/schoolbooks/'})
 )

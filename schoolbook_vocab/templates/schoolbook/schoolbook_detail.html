@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ object.name }}</h2>
+  <h3>Chapters:</h3>
+  <ul>
+  {% for chapter in object.chapters.all %}
+    <li><a href="{{ chapter.get_absolute_url }}">{{ chapter.name }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}
