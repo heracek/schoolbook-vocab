@@ -27,4 +27,4 @@ class Translation(models.Model):
         search_fields = ('translation', 'vocab')
 
     def __unicode__(self):
-        return u'Translation: %s' % self.translation
+        return self.translation

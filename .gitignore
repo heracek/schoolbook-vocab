@@ -1,3 +1,4 @@
+.DS_Store
 *.pyc
 schoolbook_vocab/vocab.db
 schoolbook_vocab/vocab.db-??

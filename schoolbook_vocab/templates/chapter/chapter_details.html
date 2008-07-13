@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ object.schoolbook.name }} - {{ object.name }}</h2>
+  <ul>
+    {% for vocab in object.vocabs.all %}
+      <ul>{% include "vocab/vocab_with_translations.html" %}</ul>
+    {% endfor %}
+  </ul>
+{% endblock %}

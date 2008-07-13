@@ -7,5 +7,6 @@ schoolbooks_list_info = {
 
 urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.list_detail.object_list', schoolbooks_list_info, name='schoolbooks_list'),
-    url(r'^(?P<slug>[0-9A-Za-z-]+)/$', 'django.views.generic.list_detail.object_detail', schoolbooks_list_info, name='schoolbook_details')
+    url(r'^(?P<slug>[0-9A-Za-z-]+)/$', 'django.views.generic.list_detail.object_detail', schoolbooks_list_info, name='schoolbook_details'),
+    (r'^(?P<slug>[0-9A-Za-z-]+)/', include('apps.chapter.urls')),
 )

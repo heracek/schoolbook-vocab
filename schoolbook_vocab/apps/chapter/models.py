@@ -2,15 +2,14 @@ from django.db import models
 from apps.schoolbook.models import Schoolbook
 
 class Chapter(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(prepopulate_from=("name",), unique=False)
-    sub_name = models.CharField(blank=True, max_length=100)
     schoolbook = models.ForeignKey(Schoolbook, related_name='chapters')
-    page = models.SmallIntegerField()
+    number = models.SmallIntegerField()
+    name = models.CharField(max_length=100)
+    sub_name = models.CharField(blank=True, max_length=100)
     
     class Mete:
-        ordering = ('page',)
-        unique_together = ('schoolbook', 'slug')
+        ordering = ('number',)
+        unique_together = ('schoolbook', 'number')
     
     class Admin:
         list_display = ('name', 'schoolbook')
@@ -18,3 +17,7 @@ class Chapter(models.Model):
 
     def __unicode__(self):
         return u'%s - %s' % (self.schoolbook, self.name)
+    
+    def get_absolute_url(self):
+        return ('chapter_details', (), { 'slug': self.slug })
+    get_absolute_url = models.permalink(get_absolute_url)
